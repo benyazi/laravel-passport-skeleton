@@ -87,7 +87,11 @@ class LoginController extends Controller
                 'user_id' => $response['user_id'],
                 'email' => $email
             ]);
-
+        } else {
+            return [
+                'success' => false,
+                'error' => "Provider not Found"
+            ];
         }
 
         $account = UserProvider::whereProvider($provider)
